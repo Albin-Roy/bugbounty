@@ -38,7 +38,7 @@ crtsh.py -d sony.com >> /root/bugbounty/targets/sony/crtsh.txt
 ###### 6. findomain
 
 ```
-
+./findomain-linux -t sony.com -u /root/bugbounty/targets/sony/findomain.txt
 ```
 
 ###### 
