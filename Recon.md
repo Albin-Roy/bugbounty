@@ -40,7 +40,7 @@ assetfinder --subs-only sony.com >> /root/bugbounty/targets/sony/assetfinder.txt
 ###### 5. sublist3r
 
 ```
-
+sublist3r -d sony.com -o /root/bugbounty/targets/sony/sublister.txt
 ```
 
 ###### 6. findomain
