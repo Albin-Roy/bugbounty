@@ -65,7 +65,9 @@ findomain-linux -t sony.com -u /root/bugbounty/targets/sony/findomain.txt
 
 #### Combine Results
 
-> cat amass.txt assetfinder.txt crtsh.txt findomain.txt subbrute.txt sublister.txt >> SUBDOMAINS.txt
+```
+cat amass.txt assetfinder.txt crtsh.txt findomain.txt subbrute.txt sublister.txt >> SUBDOMAINS.txt
+```
 
 
 
