@@ -49,10 +49,6 @@ sublist3r -d sony.com -o /root/bugbounty/targets/sony/sublister.txt
 findomain-linux -t sony.com -u /root/bugbounty/targets/sony/findomain.txt
 ```
 
-###### 
-
-
-
 
 
 > Installation
@@ -64,5 +60,29 @@ findomain-linux -t sony.com -u /root/bugbounty/targets/sony/findomain.txt
 > - export PATH=$PATH:/opt/scripts  
 > 
 > Run scripts inside /opt/scripts
+
+
+
+#### Combine Results
+
+> cat amass.txt assetfinder.txt crtsh.txt findomain.txt subbrute.txt sublister.txt >> SUBDOMAINS.txt
+
+
+
+#### Removing Duplicates
+
+```
+cat subdomains.txt | sort -u > subdomains-UNIQUE.txt
+```
+
+
+
+#### Checking Alive
+
+```
+cat subdomains-UNIQUE.txt | httprobe -c 100 > ALIVE.txt
+```
+
+
 
 
