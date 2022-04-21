@@ -33,12 +33,20 @@ crtsh.py -d sony.com >> /root/bugbounty/targets/sony/crtsh.txt
 
 ###### 4. assetfinder
 
+```
+assetfinder --subs-only sony.com >> /root/bugbounty/targets/sony/assetfinder.txt
+```
 
+###### 5. sublist3r
+
+```
+
+```
 
 ###### 6. findomain
 
 ```
-./findomain-linux -t sony.com -u /root/bugbounty/targets/sony/findomain.txt
+findomain-linux -t sony.com -u /root/bugbounty/targets/sony/findomain.txt
 ```
 
 ###### 
