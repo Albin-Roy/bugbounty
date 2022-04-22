@@ -25,7 +25,7 @@ Export path variable permanently by add this command in .zshrc file.
 
 Run scripts inside /opt/scripts
 
-
+Copy names.txt names_small.txt resolvers.txt from subbrute to where the script should run. 
 
 ##### Commands
 
@@ -82,10 +82,8 @@ cat subdomains.txt | sort -u > subdomains-UNIQUE.txt
 #### Checking Alive
 
 ```
-cat subdomains-UNIQUE.txt | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ":443" > ALIVE.txt
+cat subdomains-UNIQUE.txt | httprobe -s | sed 's/https\?:\/\///' > ALIVE.txt
 ```
-
-
 
 ## Scanning
 
@@ -93,12 +91,8 @@ cat subdomains-UNIQUE.txt | httprobe -s -p https:443 | sed 's/https\?:\/\///' | 
 nmap -iL ALIVE.txt -T5 -oA scans/scanned.txt > /dev/null 2>&1
 ```
 
-
-
 ### Taking screenshots using Eyewitness
 
 ```
 eyewitness -f $pwd/ALIVE.txt -d screenshots
 ```
-
-

@@ -10,6 +10,7 @@ fi
 
 if [ ! -d $1 ]; then
 	mkdir $1
+	cp names.txt names_small.txt resolvers.txt $1
 	cd $1
 else
 	cd $1
@@ -27,8 +28,8 @@ pwd=$(pwd)
 echo "Gathering information from amass..."
 amass enum -d $1 >> amass.txt
 
-echo "Gathering information from subbrute..."
-subbrute.py $1 >> subbrute.txt
+#echo "Gathering information from subbrute..."
+#subbrute.py $1 >> subbrute.txt
 
 echo "Gathering information from crtsh..."
 crtsh.py -d $1 >> crtsh.txt
@@ -50,7 +51,7 @@ echo "Removing duplicates..."
 cat SUBDOMAINS.txt | sort -u > subdomains-UNIQUE.txt
 
 echo -e "Checking alive targets...\n"
-cat subdomains-UNIQUE.txt | httprobe -s -p https:443 | sed 's/https\?:\/\///' | tr -d ":443" > ALIVE.txt
+cat subdomains-UNIQUE.txt | httprobe -c 100 | sed 's/https\?:\/\///' > ALIVE.txt
 
 echo -e "Scanning for open ports...\n"
 nmap -iL ALIVE.txt -T5 -oA scans/scanned.txt > /dev/null 2>&1
