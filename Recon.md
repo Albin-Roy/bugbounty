@@ -82,7 +82,7 @@ cat subdomains.txt | sort -u > subdomains-UNIQUE.txt
 #### Checking Alive
 
 ```
-cat subdomains-UNIQUE.txt | httprobe -s | sed 's/https\?:\/\///' > ALIVE.txt
+cat subdomains-UNIQUE.txt | httprobe -c 100 | sed 's/https\?:\/\///' > ALIVE.txt
 ```
 
 ## Scanning
