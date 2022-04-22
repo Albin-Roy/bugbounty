@@ -11,6 +11,22 @@
 | sublist3r   | fast      | large results             |
 | findomain   | fast      | large results             |
 
+##### 
+
+Installation
+
+Install crtsh, findomain and subbrute from github.
+
+Move all scripts to /opt/scripts directory.
+
+Export path variable permanently by add this command in .zshrc file.
+
+- export PATH=$PATH:/opt/scripts
+
+Run scripts inside /opt/scripts
+
+
+
 ##### Commands
 
 ###### 1. amass
@@ -49,15 +65,7 @@ sublist3r -d <domain> -o sublister.txt
 findomain-linux -t <domain> -u findomain.txt
 ```
 
-> Installation
-> 
-> Move all scripts to /opt/scripts directory
-> 
-> Export path variable permanently by add this command in .zshrc file 
-> 
-> - export PATH=$PATH:/opt/scripts  
-> 
-> Run scripts inside /opt/scripts
+#### 
 
 #### Combine Results
 
