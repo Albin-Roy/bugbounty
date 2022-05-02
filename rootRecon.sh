@@ -17,12 +17,24 @@ while IFS= read -r line; do
    arr+=("$line")
 done </root/bugbounty/targets/$1/ALIVE.txt
 
+indexes=( "${!arr[@]}" )
+lastindex=${indexes[-1]}
+lastindex=`expr $lastindex +  1`
+count=1
+
 for i in "${arr[@]}"
 do
 	if [ ! -d $i ]; then
+		
 		echo " "
-		echo -e "${cyan}Scanning $i ${clr}"
+		echo -e "${cyan}Scanning $i ${blue}       [ $count/$lastindex ] ${clr}"
+		start_time=$(date +%s)
 		recon.sh $i
-		echo -e "${green} $i completed..!${clr}"
+		end_time=$(date +%s)
+		echo -e "${red}$i completed in $(($end_time-$start_time)) seconds..!${clr}"
+		if [ $count -eq $lastindex ];then
+			echo -e "\n${yellow}Hurray!!! Completed reconnaissance on $1 ${clr}"
+		fi
 	fi
+	count=`expr $count + 1`
 done
